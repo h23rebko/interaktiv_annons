@@ -1,0 +1,83 @@
+<!-- Denna fil användes för att mocka betallösning -->
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Betalning lyckades</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      color: #1f2937;
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 520px;
+      background: white;
+      border-radius: 20px;
+      padding: 1.5rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      border: 1px solid #e5e7eb;
+      text-align: center;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 1rem;
+      color: #0f766e;
+      font-weight: 700;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Betalning genomförd</h1>
+    <p id="statusText">Aktiverar din prenumeration...</p>
+    <a href="/">Tillbaka till annonsen</a>
+  </div>
+
+  <script>
+    async function activateSubscription() {
+      const params = new URLSearchParams(window.location.search);
+      const subscriptionId = params.get("subscriptionId");
+      const statusText = document.getElementById("statusText");
+
+      if (!subscriptionId) {
+        statusText.textContent = "Saknar subscriptionId.";
+        return;
+      }
+
+      try {
+        const response = await fetch("/api/subscription/activate", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ subscriptionId })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          statusText.textContent = data.error || "Kunde inte aktivera prenumerationen.";
+          return;
+        }
+
+        statusText.textContent = "Din SMS-prenumeration är nu aktiv.";
+      } catch (error) {
+        statusText.textContent = "Tekniskt fel vid aktivering.";
+      }
+    }
+
+    activateSubscription();
+  </script>
+</body>
+</html>

@@ -1,0 +1,357 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f3f4f6;
+  color: #1f2937;
+}
+
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+}
+
+.ad-card {
+  width: 100%;
+  max-width: 520px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
+}
+
+.ad-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  color: #6b7280;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  padding: 0.3rem 0.7rem;
+  margin-bottom: 1rem;
+}
+
+.ad-kicker {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #0f766e;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.ad-card h1 {
+  margin: 0.4rem 0 0.8rem;
+  font-size: 1.9rem;
+  line-height: 1.2;
+}
+
+.ad-intro {
+  margin: 0 0 1.2rem;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.heritage-item {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.heritage-item h3 {
+  margin: 0 0 0.3rem;
+}
+
+.heritage-item p {
+  margin: 0 0 0.6rem;
+  line-height: 1.5;
+}
+
+.more-btn,
+#translateModalBtn {
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  border: none;
+  background: #111827;
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.more-btn:hover,
+#translateModalBtn:hover {
+  opacity: 0.95;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.55);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  background: white;
+  border-radius: 18px;
+  padding: 1.5rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+}
+
+.close-btn {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+  border: none;
+  background: transparent;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+#modalTitle {
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+}
+
+#modalText {
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+}
+
+.modal-controls {
+  display: grid;
+  gap: 0.8rem;
+}
+
+#modalLanguage {
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  background: white;
+}
+
+#unescoLink {
+  display: inline-block;
+  text-decoration: none;
+  color: #0f766e;
+  font-weight: 700;
+}
+
+.list-controls {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+#listLanguage {
+  padding: 0.7rem;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+}
+
+.list-controls {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+#listLanguage {
+  padding: 0.7rem;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  background: white;
+  font-size: 1rem;
+}
+
+#locationStatus {
+  margin: 0 0 1rem;
+  color: #374151;
+  font-size: 0.95rem;
+}
+
+#locationStatus {
+  font-style: italic;
+  color: #4b5563;
+}
+
+.search-controls {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+#citySearch {
+  padding: 0.7rem;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 1rem;
+}
+
+#searchBtn,
+#resetSearchBtn {
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+#searchBtn {
+  background: #0f766e;
+  color: white;
+}
+
+#resetSearchBtn {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.hidden {
+  display: none;
+}
+
+.result-actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+/* Basstil – återanvänd samma som .more-btn */
+#showMoreBtn,
+#showLessBtn {
+  padding: 0.5rem 0.8rem;
+  border-radius: 10px;
+  border: none;
+  background: #111827;
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.85rem; /* lite mindre */
+}
+
+/* Hover samma känsla */
+#showMoreBtn:hover,
+#showLessBtn:hover {
+  opacity: 0.95;
+}
+
+.subscription-box {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+.subscription-box h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+}
+
+.subscription-text {
+  margin: 0 0 1rem;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.subscription-box label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 700;
+}
+
+#smsPhone {
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.consent-row {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  font-weight: 400;
+  color: #374151;
+  margin-bottom: 1rem;
+}
+
+.subscription-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.subscription-price {
+  font-weight: 700;
+  color: #111827;
+}
+
+#subscribeBtn {
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  border: none;
+  background: #0f766e;
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+#subscribeBtn:hover {
+  opacity: 0.95;
+}
+
+.subscription-status {
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+#radiusSelect {
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  background: white;
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.subscription-success {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #ecfdf5;
+  border: 1px solid #10b981;
+  border-radius: 12px;
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.success-icon {
+  font-size: 1.4rem;
+}

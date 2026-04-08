@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interaktiv annons</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="ad-card">
+      <span class="ad-label">ANNONS</span>
+
+      <p class="ad-kicker">UNESCO World Heritage</p>
+      <h1>Upptäck världsarv nära dig</h1>
+      <p class="ad-intro">
+        Få snabb information om historiska platser i din närhet — direkt i din tidning.
+      </p>
+
+      <p id="locationStatus">Hämtar din plats...</p>
+
+      <div class="list-controls">
+        <label for="listLanguage">Välj språk</label>
+        <select id="listLanguage">
+          <option value="en">English</option>
+          <option value="sv">Svenska</option>
+          <option value="de">Deutsch</option>
+          <option value="es">Español</option>
+          <option value="fr">Français</option>
+          <option value="it">Italiano</option>
+          <option value="nl">Nederlands</option>
+          <option value="zh-Hans">中文 (Mandarin)</option>
+          <option value="ar">العربية</option>
+          <option value="hi">हिन्दी</option>
+        </select>
+      </div>
+
+      <div class="search-controls">
+        <label for="citySearch">Sök världsarv eller land (EN)</label>
+        <input id="citySearch" type="text" placeholder="Till exempel Sweden" />
+        <button id="searchBtn">Sök</button>
+        <button id="resetSearchBtn" type="button">Tillbaka till nära mig</button>
+      </div>
+
+      <div id="heritageList"></div>
+
+      <div class="result-actions">
+        <button id="showMoreBtn" class="hidden">Visa fler</button>
+        <button id="showLessBtn" class="hidden">Visa färre</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="modalOverlay" class="modal-overlay hidden">
+    <div class="modal">
+      <button id="closeModal" class="close-btn" aria-label="Stäng modal">×</button>
+
+      <h2 id="modalTitle"></h2>
+      <p id="modalText"></p>
+      <a id="unescoLink" target="_blank" rel="noopener noreferrer">Visa hos UNESCO</a>
+
+
+      <div class="subscription-box">
+  <h3>Få SMS när du befinner dig nära ett världsarv</h3>
+  <p class="subscription-text">
+    Prenumerera på notifieringar och få ett SMS när du befinner dig nära ett världsarv inom vald radie.
+  </p>
+
+  <label for="smsPhone">Mobilnummer</label>
+  <input id="smsPhone" type="tel" placeholder="Till exempel 0701234567" />
+
+  <label for="radiusSelect">Radie för SMS-notiser</label>
+  <select id="radiusSelect">
+    <option value="5">5 km</option>
+    <option value="10" selected>10 km</option>
+    <option value="20">20 km</option>
+  </select>
+
+  <label class="consent-row">
+    <input id="smsConsent" type="checkbox" />
+    Jag godkänner att få SMS-notifieringar om världsarv.
+  </label>
+
+<div class="subscription-actions">
+  <span class="subscription-price">9 kr / månad</span>
+  <button id="subscribeBtn" type="button">Betala med Klarna</button>
+</div>
+
+<div id="klarna_container"></div>
+
+<p id="subscriptionStatus" class="subscription-status"></p>
+</div>
+    </div>
+  </div>
+
+  <script src="https://x.klarnacdn.net/kp/lib/v1/api.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
